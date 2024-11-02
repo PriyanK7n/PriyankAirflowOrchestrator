@@ -26,7 +26,7 @@ Key Concepts:
 
 Airflow UI Graph:
 
-![PythonOperator Usage - Math Operations DAG](image.png)
+![PythonOperator Usage - Math Operations DAG](images/image.png)
 
 ## Project 2: Math Operations Using TaskFlow API
 
@@ -39,7 +39,7 @@ Key Concepts:
 
 Airflow UI Graph:
 
-![TaskFlow API - Math Operations DAG](image-1.png)
+![TaskFlow API - Math Operations DAG](images/image-1.png)
 
 
 
