@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  # postgres docker container 
+  postgres:
+
+    image: postgres:13 # image is being pulled from dockerhub
+    
+    container_name: postgres_db # docker container we created to run postgres
+    
+    environment: # secret info envrionment variable
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    
+    ports:
+      - "5432:5432" # [ host-port: docker-container-port ]. Here the host-port is unique as we plan to run multiple docker containers
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # saves the docker container information here without being reloaded
+    
+    networks:
+      - airflow_network # the name of the network postgres docker container is, hence if other docker containers plan to connect with it then they should be on the same common network which is airflow_network here
+
+# Also, we creates a new network and a New volume if they both does not exist
+
+networks: 
+  airflow_network:
+    external: false
+
+volumes:
+  postgres_data:
